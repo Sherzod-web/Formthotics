@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.html',{
+"title": "Formthotics"
+})
+
+<body>
+	<div class="wrapper">
+		@@include('html/_header.html',{})
+		<main class="main">
+			<section class="main__choose-region choose-region">
+				<div class="choose-region__container">
+					<div class="choose-region__body">
+						<h1 class="choose-region__title title _icon-location">Выберите ваш домашний регион</h1>
+						<div class="choose-region__btns">
+							<a href="" class="choose-region__btn">Москва и область</a>
+							<a href="" class="choose-region__btn">Регионы России</a>
+						</div>
+						<div class="choose-region__text">Выберите ваш регион для перехода в каталог</div>
+						<div class="choose-region__subtext">Регионы России</div>
+					</div>
+				</div>
+				<div class="choose-region__image">
+					<img src="@img/main/main-img.jpg" alt="Картинка">
+				</div>
+			</section>
+			<section class="main__greeting greeting">
+				<div class="greeting__container">
+					<h2 class="greeting__title title">Здравствуйте, уважаемые коллеги!</h2>
+					<p class="greeting__text">Приветствуем вас в официальном магазине FormThotics.Сайт работает
+						только для сертифицированных врачей, прошедших обучение и работающих с нашей системой. Надеемся,
+						что он поможет значительно облегчить коммуникацию ускорить процедуру заказа</p>
+				</div>
+			</section>
+		</main>
+		@@include('html/_footer.html',{})
+	</div>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<script src="js/script.min.js"></script>
+</body>
+
+</html>

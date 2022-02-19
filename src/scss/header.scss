@@ -1,0 +1,176 @@
+// ==============================================================================================================================================================================================================================================================================================================================
+.header {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        @media (max-width: $mobile) {
+            background-color: #5b9bd5;
+        }
+    }
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        column-gap: rem(10);
+        flex-wrap: wrap;
+        position: relative;
+    }
+
+    &__logo {
+        padding: rem(24) rem(7) rem(10);
+        background-color: #fff;
+        border-radius: 0 0 rem(15) rem(15);
+        @include adaptiveValue("flex-basis", 168, 80, 1);
+        position: relative;
+        z-index: 2;
+        & img {
+            max-width: 100%;
+        }
+        @media (max-width: rem(450)) {
+            flex: 1 1 100%;
+            text-align: center;
+        }
+    }
+
+    &__menu {
+        position: relative;
+        z-index: 2;
+    }
+
+    &__social {
+        position: relative;
+        z-index: 2;
+    }
+}
+.menu {
+    @media (max-width: $mobile) {
+        position: fixed;
+        top: -100%;
+        left: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: #5b9bd5;
+        padding: rem(170) 0 rem(70);
+        transition: all 0.3s ease 0s;
+        &.menu-open {
+            top: 0;
+        }
+    }
+    &__list {
+        display: flex;
+        align-items: center;
+        @include adaptiveValue("column-gap", 28, 10, 1);
+        @media (max-width: $mobile) {
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
+    &__item {
+        @media (max-width: $mobile) {
+            &:not(:last-child) {
+                margin: 0 0 rem(50) 0;
+            }
+        }
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        line-height: math.div(21, 18);
+        color: #fff;
+        &:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: $mobile) {
+            justify-content: center;
+            font-size: rem(25);
+        }
+        span {
+            width: rem(25);
+            height: rem(23);
+            background-color: #e74c3c;
+            border-radius: rem(3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: rem(14);
+            margin-left: em(9, 14);
+        }
+    }
+}
+.social {
+    &__list {
+        display: flex;
+        @include adaptiveValue("column-gap", 28, 10, 1);
+    }
+
+    &__link {
+        font-size: rem(22);
+        color: #fff;
+        @media (max-width: $mobile) {
+            display: block;
+            font-size: rem(25);
+            padding: rem(10);
+        }
+    }
+}
+// ==============================================================================================================================================================================================================================================================================================================================
+// Burger
+.icon-menu {
+    display: none;
+    @media (max-width: $mobile) {
+        display: block;
+        position: relative;
+        flex: 0 0 rem(30);
+        height: rem(18);
+        cursor: pointer;
+        z-index: 5;
+        span,
+        &::before,
+        &::after {
+            content: "";
+            transition: all 0.3s ease 0s;
+            left: 0;
+            position: absolute;
+            width: 100%;
+            height: rem(2);
+            background-color: #fff;
+            border-radius: rem(2);
+        }
+        &::before {
+            top: 0;
+        }
+        &::after {
+            bottom: 0;
+        }
+        span {
+            top: calc(50% - rem(1));
+        }
+        &.menu-open {
+            span {
+                transform: scale(0);
+            }
+            &::before {
+                transform: rotate(-45deg);
+                top: calc(50% - rem(1));
+            }
+            &::after {
+                transform: rotate(45deg);
+                bottom: calc(50% - rem(1));
+            }
+        }
+    }
+}
